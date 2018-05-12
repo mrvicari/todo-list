@@ -1,0 +1,54 @@
+<div class="foreGround">
+  <h1>{{ title }}</h1>
+</div>
+
+<hr>
+
+<div class="row" ng-if="title == 'All Tasks'">
+  <div class="col-sm-4">
+    <button class="btn btn-secondary form-control" ng-click="myOrderBy('owner')"><strong>Owner</strong></button>
+  </div>
+  <div class="col-sm-4">
+    <button class="btn btn-secondary form-control" ng-click="myOrderBy('title')"><strong>Title</strong></button>
+  </div>
+  <div class="col-sm-4">
+    <button class="btn btn-secondary form-control" ng-click="myOrderBy('completed')"><strong>Completed</strong></button>
+  </div>
+</div>
+
+<div class="row" ng-if="title != 'All Tasks'">
+  <div class="col-sm-6">
+    <button class="btn btn-secondary form-control" ng-click="myOrderBy('owner')"><strong>Owner</strong></button>
+  </div>
+  <div class="col-sm-6">
+    <button class="btn btn-secondary form-control" ng-click="myOrderBy('title')"><strong>Title</strong></button>
+  </div>
+</div>
+
+<div ng-repeat="task in tasks | filter:search | orderBy:mySort">
+  <hr>
+  <div class="foreGround">
+    <div class="row">
+      <div class="col-xs-10">
+        <p><strong><i>{{ task.owner }}</i></strong></p>
+        <p class="title"> {{ task.title }} </p>
+        <p> {{ task.task }} </p>
+      </div>
+      <div class="col-xs-2 right">
+        <div class="row">
+          <div class="col-md-4">
+            <input type="checkbox" class="btn form-control" ng-model="task.completed" ng-change="complete(task)" />
+          </div>
+          <div class="col-md-4">
+            <a href="/task/{{task.id}}" class="btn btn-warning form-control"><strong> + </strong></a>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-danger form-control" ng-click="delete(task)"><strong>X</strong></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br>

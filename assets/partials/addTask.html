@@ -1,0 +1,32 @@
+<div class="foreGround">
+  <h1>Add Task</h1>
+</div>
+
+<hr>
+
+<div class="alert alert-success center" ng-show="added">
+  <p><strong>Task added successfully!</strong></p>
+</div>
+
+<div class="foreGround">
+  <form ng-submit="submit()">
+    <div class="form-group">
+      <label for="owner" class="control-label"><h3><strong>Owner</strong></h3></label>
+      <input type="text" id="owner" class="form-control" ng-model="task.owner" placeholder="Enter task owner" />
+    </div>
+    <div class="form-group">
+      <label for="title" class="control-label"><h3><strong>Title</strong></h3></label>
+      <input type="text" id="title" class="form-control" ng-model="task.title" placeholder="Enter task title" />
+    </div>
+    <div class="form-group">
+      <label for="task" class="control-label"><h3><strong>Description</strong></h3></label>
+      <textarea id="task" class="form-control" placeholder="Enter task description" ng-model="task.task"></textarea>
+    </div>
+    <br>
+    <div class="center">
+      <input class="btn btn-primary form-control" type="submit" value="Add Task" style="font-weight:bold;"></input>
+    </div>
+  </form>
+</div>
+
+<br><br>
